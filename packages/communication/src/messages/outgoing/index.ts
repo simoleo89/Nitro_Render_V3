@@ -70,5 +70,6 @@ export * from './user/data';
 export * from './user/inventory';
 export * from './user/inventory/currency';
 export * from './user/inventory/subscription';
+export * from './uisettings';
 export * from './user/settings';
 export * from './userclassification';

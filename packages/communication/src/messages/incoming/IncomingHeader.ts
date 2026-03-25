@@ -477,6 +477,9 @@ export class IncomingHeader
     public static RENTABLE_FURNI_RENT_OR_BUYOUT_OFFER = 35;
     public static HANDSHAKE_IDENTITY_ACCOUNT = 3523;
 	
+	// UI Settings
+	public static UI_SETTINGS_DATA = 10047;
+
 	// Catalog Admin
     public static CATALOG_ADMIN_RESULT = 10059;
 

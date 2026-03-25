@@ -476,6 +476,10 @@ export class OutgoingHeader
 	
 	public static FURNITURE_PICKUP_ALL = 10017;
 
+	// UI Settings
+	public static UI_SETTINGS_LOAD = 10047;
+	public static UI_SETTINGS_SAVE = 10048;
+
 	public static CATALOG_ADMIN_SAVE_PAGE = 10050;
     public static CATALOG_ADMIN_CREATE_PAGE = 10051;
     public static CATALOG_ADMIN_DELETE_PAGE = 10052;
