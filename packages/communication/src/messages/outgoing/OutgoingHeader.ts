@@ -503,4 +503,5 @@ export class OutgoingHeader
     public static SET_ACTIVE_PREFIX = 7012;
     public static DELETE_PREFIX = 7013;
     public static PURCHASE_PREFIX = 7014;
+    public static EDIT_PREFIX = 7015;
 }

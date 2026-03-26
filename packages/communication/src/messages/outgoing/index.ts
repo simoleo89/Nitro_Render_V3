@@ -27,6 +27,7 @@ export * from './inventory/badges';
 export * from './inventory/bots';
 export * from './inventory/furni';
 export * from './inventory/pets';
+export * from './inventory/prefixes';
 export * from './inventory/trading';
 export * from './inventory/unseen';
 export * from './landingview';

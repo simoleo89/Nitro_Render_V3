@@ -60,6 +60,7 @@ export * from './room/furniture/wall';
 export * from './room/furniture/youtube';
 export * from './room/mapping';
 export * from './room/pet';
+export * from './room/prefix';
 export * from './room/session';
 export * from './room/unit';
 export * from './room/unit/chat';

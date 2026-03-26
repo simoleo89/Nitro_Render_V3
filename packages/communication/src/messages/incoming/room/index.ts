@@ -11,5 +11,6 @@ export * from './furniture/youtube';
 export * from './mapping';
 export * from './pet';
 export * from './session';
+export * from './prefix';
 export * from './unit';
 export * from './unit/chat';
