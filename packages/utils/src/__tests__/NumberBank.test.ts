@@ -1,5 +1,5 @@
 import { describe, it, expect, beforeEach } from 'vitest';
-import { NumberBank } from '../NumberBank';
+import { NumberBank } from '../data/NumberBank';
 
 describe('NumberBank', () =>
 {

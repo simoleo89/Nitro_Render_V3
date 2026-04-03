@@ -16,8 +16,6 @@ export * from './IgnoredUsersEvent';
 export * from './IgnoreResultEvent';
 export * from './InClientLinkEvent';
 export * from './inventory';
-export * from './inventory/currency';
-export * from './inventory/subscription';
 export * from './MemberData';
 export * from './PetRespectNoficationEvent';
 export * from './PetSupplementedNotificationEvent';

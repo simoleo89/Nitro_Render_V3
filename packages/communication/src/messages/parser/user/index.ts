@@ -17,8 +17,6 @@ export * from './IgnoredUsersParser';
 export * from './IgnoreResultParser';
 export * from './InClientLinkParser';
 export * from './inventory';
-export * from './inventory/currency';
-export * from './inventory/subscription';
 export * from './PetRespectNotificationParser';
 export * from './PetSupplementedNotificationParser';
 export * from './PetSupplementTypeEnum';

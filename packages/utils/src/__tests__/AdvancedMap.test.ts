@@ -1,5 +1,5 @@
 import { describe, it, expect, beforeEach } from 'vitest';
-import { AdvancedMap } from '../AdvancedMap';
+import { AdvancedMap } from '../data/AdvancedMap';
 
 describe('AdvancedMap', () =>
 {

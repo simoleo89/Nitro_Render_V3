@@ -1,5 +1,5 @@
-﻿import { GetTickerFPS } from '../GetTickerFPS';
-import { GetTickerTime } from '../GetTickerTime';
+﻿import { GetTickerFPS } from '../graphics/GetTickerFPS';
+import { GetTickerTime } from '../graphics/GetTickerTime';
 import { Motion } from './Motion';
 
 export class Motions

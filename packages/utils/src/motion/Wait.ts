@@ -1,4 +1,4 @@
-﻿import { GetTickerTime } from '../GetTickerTime';
+﻿import { GetTickerTime } from '../graphics/GetTickerTime';
 import { Motion } from './Motion';
 
 export class Wait extends Motion

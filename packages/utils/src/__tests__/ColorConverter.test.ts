@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest';
-import { ColorConverter } from '../ColorConverter';
+import { ColorConverter } from '../math/ColorConverter';
 
 describe('ColorConverter', () =>
 {

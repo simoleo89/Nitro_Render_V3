@@ -1,6 +1,21 @@
 import { defineConfig } from 'vitest/config';
 import { resolve } from 'path';
 
+const nitroAliases = {
+    '@nitrots/api': resolve(__dirname, 'packages/api/src'),
+    '@nitrots/assets': resolve(__dirname, 'packages/assets/src'),
+    '@nitrots/avatar': resolve(__dirname, 'packages/avatar/src'),
+    '@nitrots/camera': resolve(__dirname, 'packages/camera/src'),
+    '@nitrots/communication': resolve(__dirname, 'packages/communication/src'),
+    '@nitrots/configuration': resolve(__dirname, 'packages/configuration/src'),
+    '@nitrots/events': resolve(__dirname, 'packages/events/src'),
+    '@nitrots/localization': resolve(__dirname, 'packages/localization/src'),
+    '@nitrots/room': resolve(__dirname, 'packages/room/src'),
+    '@nitrots/session': resolve(__dirname, 'packages/session/src'),
+    '@nitrots/sound': resolve(__dirname, 'packages/sound/src'),
+    '@nitrots/utils': resolve(__dirname, 'packages/utils/src')
+};
+
 export default defineConfig({
     test: {
         globals: true,
@@ -20,35 +35,9 @@ export default defineConfig({
                 '**/*.spec.ts'
             ]
         },
-        alias: {
-            '@nitrots/api': resolve(__dirname, 'packages/api/src'),
-            '@nitrots/assets': resolve(__dirname, 'packages/assets/src'),
-            '@nitrots/avatar': resolve(__dirname, 'packages/avatar/src'),
-            '@nitrots/camera': resolve(__dirname, 'packages/camera/src'),
-            '@nitrots/communication': resolve(__dirname, 'packages/communication/src'),
-            '@nitrots/configuration': resolve(__dirname, 'packages/configuration/src'),
-            '@nitrots/events': resolve(__dirname, 'packages/events/src'),
-            '@nitrots/localization': resolve(__dirname, 'packages/localization/src'),
-            '@nitrots/room': resolve(__dirname, 'packages/room/src'),
-            '@nitrots/session': resolve(__dirname, 'packages/session/src'),
-            '@nitrots/sound': resolve(__dirname, 'packages/sound/src'),
-            '@nitrots/utils': resolve(__dirname, 'packages/utils/src')
-        }
+        alias: nitroAliases
     },
     resolve: {
-        alias: {
-            '@nitrots/api': resolve(__dirname, 'packages/api/src'),
-            '@nitrots/assets': resolve(__dirname, 'packages/assets/src'),
-            '@nitrots/avatar': resolve(__dirname, 'packages/avatar/src'),
-            '@nitrots/camera': resolve(__dirname, 'packages/camera/src'),
-            '@nitrots/communication': resolve(__dirname, 'packages/communication/src'),
-            '@nitrots/configuration': resolve(__dirname, 'packages/configuration/src'),
-            '@nitrots/events': resolve(__dirname, 'packages/events/src'),
-            '@nitrots/localization': resolve(__dirname, 'packages/localization/src'),
-            '@nitrots/room': resolve(__dirname, 'packages/room/src'),
-            '@nitrots/session': resolve(__dirname, 'packages/session/src'),
-            '@nitrots/sound': resolve(__dirname, 'packages/sound/src'),
-            '@nitrots/utils': resolve(__dirname, 'packages/utils/src')
-        }
+        alias: nitroAliases
     }
 });
