@@ -70,18 +70,9 @@ export class PetSizeData extends AnimationSizeData
     {
         if((k >= 0) && (k < this._posturesToAnimations.size))
         {
-            const keys = this._posturesToAnimations.keys();
+            const keys = Array.from(this._posturesToAnimations.keys());
 
-            for(; ;)
-            {
-                const key = keys.next();
-
-                if(key.done) return null;
-
-                if(k <= 0) return key.value;
-
-                --k;
-            }
+            return keys[k] ?? null;
         }
 
         return (_arg_2) ? this._defaultPosture : null;
@@ -91,18 +82,9 @@ export class PetSizeData extends AnimationSizeData
     {
         if((index >= 0) && (index < this._gesturesToAnimations.size))
         {
-            const keys = this._gesturesToAnimations.keys();
+            const keys = Array.from(this._gesturesToAnimations.keys());
 
-            for(; ;)
-            {
-                const key = keys.next();
-
-                if(key.done) return null;
-
-                if(index <= 0) return key.value;
-
-                --index;
-            }
+            return keys[index] ?? null;
         }
 
         return null;

@@ -29,7 +29,7 @@ export class RoomSessionManager implements IRoomSessionManager, IRoomHandlerList
 
     public async init(): Promise<void>
     {
-        console.log('[RoomSessionManager] init() called');
+        NitroLogger.log('[RoomSessionManager] init()');
         this.createHandlers();
         this.processPendingSession();
         this.setupReconnectListener();
@@ -53,7 +53,7 @@ export class RoomSessionManager implements IRoomSessionManager, IRoomHandlerList
 
             this._isReconnecting = true;
         }
-        catch(e){}
+        catch(e) { /* sessionStorage may be unavailable */ }
     }
 
     private createHandlers(): void
@@ -240,7 +240,7 @@ export class RoomSessionManager implements IRoomSessionManager, IRoomHandlerList
                     if(isNaN(spawnX) || isNaN(spawnY)) { spawnX = -1; spawnY = -1; }
                 }
             }
-            catch(e) {}
+            catch(e) { /* sessionStorage may be unavailable */ }
 
             this._isReconnecting = true;
             this.createSession(roomId, password, spawnX, spawnY);
@@ -285,7 +285,7 @@ export class RoomSessionManager implements IRoomSessionManager, IRoomHandlerList
                 this.clearPersistedRoom();
             }
         }
-        catch(e) {}
+        catch(e) { /* sessionStorage may be unavailable */ }
     }
 
     private clearPersistedRoom(): void
@@ -295,7 +295,7 @@ export class RoomSessionManager implements IRoomSessionManager, IRoomHandlerList
             sessionStorage.removeItem(STORAGE_KEY_ROOM_ID);
             sessionStorage.removeItem(STORAGE_KEY_ROOM_PASSWORD);
         }
-        catch(e) {}
+        catch(e) { /* sessionStorage may be unavailable */ }
     }
 
     private clearPersistedPosition(): void
@@ -305,7 +305,7 @@ export class RoomSessionManager implements IRoomSessionManager, IRoomHandlerList
             sessionStorage.removeItem(STORAGE_KEY_POS_X);
             sessionStorage.removeItem(STORAGE_KEY_POS_Y);
         }
-        catch(e) {}
+        catch(e) { /* sessionStorage may be unavailable */ }
     }
 
     private snapshotSavedPosition(): void

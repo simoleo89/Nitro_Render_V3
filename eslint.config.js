@@ -133,21 +133,16 @@ export default tseslint.config(
             '@typescript-eslint/no-unused-vars': [
                 'off'
             ],
-            '@typescript-eslint/ban-types': [
+            '@typescript-eslint/no-restricted-types': [
                 'error',
                 {
                     'types':
                     {
-                        'String': true,
-                        'Boolean': true,
-                        'Number': true,
-                        'Symbol': true,
-                        '{}': false,
-                        'Object': false,
-                        'object': false,
-                        'Function': false
-                    },
-                    'extendDefaults': true
+                        'String': { 'message': 'Use string instead', 'fixWith': 'string' },
+                        'Boolean': { 'message': 'Use boolean instead', 'fixWith': 'boolean' },
+                        'Number': { 'message': 'Use number instead', 'fixWith': 'number' },
+                        'Symbol': { 'message': 'Use symbol instead', 'fixWith': 'symbol' }
+                    }
                 }
             ]
         }

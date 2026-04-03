@@ -23,7 +23,7 @@
     "build": "vite build",
     "compile": "tsc --project ./tsconfig.json --noEmit false",
     "eslint": "eslint ./src ./packages/*/src",
-    "eslint-fix": "eslint ./src --fix",
+    "eslint-fix": "eslint --fix ./src ./packages/*/src",
     "test": "vitest run",
     "test:watch": "vitest",
     "test:coverage": "vitest run --coverage"
