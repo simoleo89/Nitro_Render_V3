@@ -2,6 +2,8 @@ export class OutgoingHeader
 {
     public static CLICK_FURNI = 6002;
     public static CLICK_USER = 10020;
+    public static UI_SETTINGS_LOAD = 10050;
+    public static UI_SETTINGS_SAVE = 10051;
 
     public static ACHIEVEMENT_LIST = 219;
     public static AUTHENTICATION = -1;

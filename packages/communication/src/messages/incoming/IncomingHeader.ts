@@ -2,6 +2,7 @@ export class IncomingHeader
 {
     // These packets do not belong to this revision, so these are custom packet ids
     public static AREA_HIDE = 6001;
+    public static UI_SETTINGS_DATA = 10050;
 
     // Original packets
     public static ACHIEVEMENT_LIST = 305;
