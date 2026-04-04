@@ -63,6 +63,7 @@ export * from './room/pet';
 export * from './room/session';
 export * from './room/unit';
 export * from './room/unit/chat';
+export * from './room/prefix';
 export * from './roomevents';
 export * from './roomsettings';
 export * from './security';

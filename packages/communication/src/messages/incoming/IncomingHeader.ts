@@ -490,4 +490,5 @@ export class IncomingHeader
     public static USER_PREFIXES = 7001;
     public static PREFIX_RECEIVED = 7002;
     public static ACTIVE_PREFIX_UPDATED = 7003;
+    public static ROOM_USER_PREFIX = 7004;
 }
