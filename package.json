@@ -41,15 +41,15 @@
     "@eslint/js": "^9.13.0",
     "@rollup/plugin-typescript": "^11.1.6",
     "@types/howler": "^2.2.11",
-    "@types/node": "^20.14.12",
+    "@types/node": "^25.6.0",
     "@types/pako": "^2.0.3",
-    "@vitest/coverage-v8": "^4.0.18",
+    "@vitest/coverage-v8": "^4.1.5",
     "eslint": "^9.8.0",
-    "jsdom": "^27.4.0",
+    "jsdom": "^29.1.1",
     "tslib": "^2.6.3",
-    "typescript": "~5.8.2",
+    "typescript": "~6.0.3",
     "typescript-eslint": "^8.26.1",
-    "vite": "^5.4.9",
-    "vitest": "^4.0.18"
+    "vite": "^8.0.10",
+    "vitest": "^4.1.5"
   }
 }
