@@ -17,4 +17,6 @@ export class NitroEventType
     public static readonly AVATAR_EFFECT_DOWNLOADED = 'AVATAR_EFFECT_DOWNLOADED';
     public static readonly AVATAR_EFFECT_LOADED = 'AVATAR_EFFECT_LOADED';
     public static readonly FURNITURE_DATA_LOADED = 'FURNITURE_DATA_LOADED';
+    public static readonly SESSION_DATA_UPDATED = 'SESSION_DATA_UPDATED';
+    public static readonly ROOM_SESSION_UPDATED = 'ROOM_SESSION_UPDATED';
 }

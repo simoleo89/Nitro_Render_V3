@@ -3,6 +3,7 @@ import { IFurnitureData } from './IFurnitureData';
 import { IGroupInformationManager } from './IGroupInformationManager';
 import { IIgnoredUsersManager } from './IIgnoredUsersManager';
 import { IProductData } from './IProductData';
+import { IUserDataSnapshot } from './IUserDataSnapshot';
 
 export interface ISessionDataManager
 {
@@ -53,4 +54,5 @@ export interface ISessionDataManager
     isCameraFollowDisabled: boolean;
     uiFlags: number;
     tags: string[];
+    getUserDataSnapshot(): Readonly<IUserDataSnapshot>;
 }
