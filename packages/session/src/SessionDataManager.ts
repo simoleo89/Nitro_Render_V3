@@ -1,5 +1,5 @@
 import { IFurnitureData, IGroupInformationManager, IMessageComposer, IMessageEvent, IProductData, ISessionDataManager, IUserDataSnapshot, NoobnessLevelEnum, SecurityLevel } from '@nitrots/api';
-import { AccountSafetyLockStatusChangeMessageEvent, AccountSafetyLockStatusChangeParser, AvailabilityStatusMessageEvent, ChangeUserNameResultMessageEvent, EmailStatusResultEvent, FigureUpdateEvent, GetCommunication, GetUserTagsComposer, InClientLinkEvent, MysteryBoxKeysEvent, NoobnessLevelMessageEvent, PetRespectComposer, PetScratchFailedMessageEvent, RoomReadyMessageEvent, RoomUnitChatComposer, UserInfoEvent, UserNameChangeMessageEvent, UserPermissionsEvent, UserPermissionsMapEvent, UserRespectComposer, UserTagsMessageEvent } from '@nitrots/communication';
+import { AccountSafetyLockStatusChangeMessageEvent, AccountSafetyLockStatusChangeParser, AvailabilityStatusMessageEvent, ChangeUserNameResultMessageEvent, EmailStatusResultEvent, FigureUpdateEvent, GetCommunication, GetUserTagsComposer, InClientLinkEvent, MysteryBoxKeysEvent, NoobnessLevelMessageEvent, PetRespectComposer, PetScratchFailedMessageEvent, RoomReadyMessageEvent, RoomUnitChatComposer, UserInfoEvent, UserNameChangeMessageEvent, UserPermissionsEvent, UserRespectComposer, UserTagsMessageEvent } from '@nitrots/communication';
 import { GetConfiguration } from '@nitrots/configuration';
 import { GetLocalizationManager } from '@nitrots/localization';
 import { GetEventDispatcher, MysteryBoxKeysUpdateEvent, NitroEvent, NitroEventType, NitroSettingsEvent, SessionDataPreferencesEvent, UserNameUpdateEvent } from '@nitrots/events';
@@ -161,7 +161,6 @@ export class SessionDataManager implements ISessionDataManager
             })),
             GetCommunication().registerMessageEvent(new UserInfoEvent(this.onUserInfoEvent.bind(this))),
             GetCommunication().registerMessageEvent(new UserPermissionsEvent(this.onUserPermissionsEvent.bind(this))),
-            GetCommunication().registerMessageEvent(new UserPermissionsMapEvent(this.onUserPermissionsMapEvent.bind(this))),
             GetCommunication().registerMessageEvent(new AvailabilityStatusMessageEvent(this.onAvailabilityStatusMessageEvent.bind(this))),
             GetCommunication().registerMessageEvent(new PetScratchFailedMessageEvent(this.onPetRespectFailed.bind(this))),
             GetCommunication().registerMessageEvent(new ChangeUserNameResultMessageEvent(this.onChangeNameUpdateEvent.bind(this))),
@@ -293,18 +292,19 @@ export class SessionDataManager implements ISessionDataManager
         this._rankBadge = parser.rankBadge;
         this._rankPrefix = parser.rankPrefix;
         this._rankPrefixColor = parser.rankPrefixColor;
+        // Copy into our local mutable Map so the parser's reference
+        // (which is overwritten on every parse() call) can't leak back
+        // to consumers.
+        this._permissions = new Map(parser.permissions);
 
+        // Invalidate BOTH snapshots: a UserPermissionsComposer push from
+        // the emulator refreshes user-data fields (clubLevel/securityLevel
+        // /rank metadata) AND the resolved permission map. Keep the two
+        // invalidation events distinct so React consumers can subscribe
+        // to just one (e.g. a widget that only cares about
+        // useHasPermission re-renders only when the map actually
+        // changes, not on every snapshot bump).
         this.invalidateUserDataSnapshot();
-    }
-
-    private onUserPermissionsMapEvent(event: UserPermissionsMapEvent): void
-    {
-        if(!event || !event.connection) return;
-
-        // Copy into our local mutable Map so the parser's reference (which
-        // is overwritten on every parse() call) can't leak back to consumers.
-        this._permissions = new Map(event.getParser().permissions);
-
         this.invalidatePermissionsSnapshot();
     }
 
